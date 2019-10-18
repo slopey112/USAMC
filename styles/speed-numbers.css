@@ -1,0 +1,33 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+}
+
+h1 {
+	background-color: #f5debf;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 48px;
+	margin: 0;
+}
+
+main {
+	background-color: #f7e9d5;
+	flex-grow: 1;
+}
+
+#numbers {
+	margin: 0 50%;
+	background-color: white;
+	float: left;
+	text-align: center;
+}
+
+td {
+	font-family: 'Cousine', monospace;
+}
