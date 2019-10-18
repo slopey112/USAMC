@@ -14,20 +14,48 @@ h1 {
 	font-family: 'Roboto Mono', monospace;
 	font-size: 48px;
 	margin: 0;
+	padding: 15px 0;
+	text-align: center;
 }
 
 main {
 	background-color: #f7e9d5;
 	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#numbers, #overlay {
+	position: absolute;
 }
 
 #numbers {
-	margin: 0 50%;
 	background-color: white;
-	float: left;
-	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 8px;
+	position: relative;
 }
 
 td {
 	font-family: 'Cousine', monospace;
+}
+
+#overlay {
+	float: left;
+	width: 657px;
+	height: 552px;
+	background-color: black;
+	padding: 10px;
+	border-radius: 8px;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#clear {
+	font-size: 72px;
+	border-radius: 10px;
 }

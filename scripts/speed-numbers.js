@@ -20,15 +20,24 @@ function createTable(tableData) {
 
 function generateNumbers() {
     let arr = [];
-    for (i = 0; i < 25; i++) {
-        if (i > 8) arr.push(['ROW ' + (i + 1) + '\xa0\xa0']);
-        else arr.push(['ROW 0' + (i + 1) + '\xa0\xa0']);
-        for (j = 0; j < 20; j++) {
+    for (let i = 0; i < 25; i++) {
+        arr.push([]);
+        for (let j = 0; j < 20; j++) {
             arr[i].push(Math.floor(Math.random() * 10));
+            arr[i].push('\xa0');
         }
+        arr[i].push('\xa0\xa0\xa0');
+        if (i > 8) arr[i].push('ROW ' + (i + 1));
+        else arr[i].push('ROW 0' + (i + 1));
     }
     console.log(arr);
     return arr;
 }
 
 createTable(generateNumbers());
+
+let button = document.getElementById("clear");
+button.onclick = function() {
+    let overlay = document.getElementById("overlay");
+    overlay.parentNode.removeChild(overlay);
+};
