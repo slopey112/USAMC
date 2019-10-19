@@ -58,4 +58,24 @@ td {
 #clear {
 	font-size: 72px;
 	border-radius: 10px;
+	background-color: #f7e9d5;
+	font-family: "Roboto Mono", monospace;
+	box-shadow: 0 5px #6e6e6e;
+}
+
+#clear:hover {
+	color: #545454;
+}
+
+#clear:active {
+	transform: translateY(5px);
+	box-shadow: 0 2px #4a4a4a;
+}
+
+#clear:focus {
+	outline: none;
+}
+
+#timer {
+	float: left;
 }

@@ -34,10 +34,15 @@ function generateNumbers() {
     return arr;
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 createTable(generateNumbers());
 
 let button = document.getElementById("clear");
-button.onclick = function() {
+button.onclick = async function () {
     let overlay = document.getElementById("overlay");
+    await sleep(125);
     overlay.parentNode.removeChild(overlay);
 };
