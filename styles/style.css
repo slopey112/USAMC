@@ -112,7 +112,7 @@ hr {
 
 .left {
 	top: 50%;
-	left: calc(47% + 1px);
+	left: 47%;
 }
 
 .right {
