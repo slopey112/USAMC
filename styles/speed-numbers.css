@@ -182,3 +182,13 @@ td {
 .collapse:hover {
 	background-color: #c9b79f;
 }
+
+.cell {
+	height: 18px;
+	width: 10px;
+	border: 0;
+}
+
+.cell:disabled {
+	background-color: white;
+}

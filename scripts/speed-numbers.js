@@ -31,20 +31,19 @@ function generateNumbers() {
         if (i > 8) arr[i].push('ROW ' + (i + 1));
         else arr[i].push('ROW 0' + (i + 1));
     }
-    numbers = arr;
+    numbers = [];
+    for (let i = 0; i < 25; i++) {
+        numbers.push([]);
+        for (let j = 0; j < 20; j++) {
+            numbers[i].push(arr[i][j]);
+        }
+    }
     return arr;
 }
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-function finish() {
-    right.removeChild(document.getElementById("numbers"));
-    right.removeChild(document.getElementById("overlay"));
-    document.getElementById("finish").style.display = "flex";
-}
-
 let s = 299;
 
 createTable(generateNumbers());
@@ -59,11 +58,54 @@ button.onclick = async function () {
         document.getElementById("timer").innerText = (new Date).clearTime().addSeconds(s).toString('m:ss');
         if (s === 0) {
             clearInterval(interval);
+            finish();
             return;
         }
         s--;
     }, 1000);
 };
+
+function finish() {
+    let x = 0;
+    let y = 0;
+    document.getElementById("right").removeChild(document.getElementById("overlay"));
+    clearInterval(interval);
+    let rows = document.getElementsByTagName("tbody")[0].children;
+    for (let i = 0; i < 25; i++) {
+        let row = rows[i].children;
+        for (let j = 0; j < 20; j++) {
+            let cell = row[j];
+            cell.innerText = "\xa0";
+        }
+    }
+    document.onkeydown = function(evt) {
+        let cell = rows[y].children[x];
+        if (!isNaN(evt.key)) {
+            cell.innerText = evt.key;
+            if (parseInt(evt.key) === numbers[y][x]) {
+                cell.style.color = "green";
+            } else {
+                cell.style.color = "red";
+            }
+            if (x === 19) {
+                x = 0;
+                y++;
+            } else {
+                x++;
+            }
+        } else if (evt.key === "Backspace") {
+            if (x === 0) {
+                x = 19;
+                y--;
+            } else {
+                x--;
+            }
+            cell = rows[y].children[x];
+            cell.innerText = "";
+        }
+    }
+}
+
 
 let reset = document.getElementsByClassName("control")[1];
 reset.onclick = function() {
@@ -75,6 +117,9 @@ reset.onclick = function() {
     table.parentNode.removeChild(table);
     createTable(generateNumbers());
 };
+
+let stop = document.getElementsByClassName("control")[0];
+stop.onclick = finish;
 
 let buttons = document.getElementsByClassName("collapse");
 let left = buttons[0];
