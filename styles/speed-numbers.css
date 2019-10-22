@@ -192,3 +192,16 @@ td {
 .cell:disabled {
 	background-color: white;
 }
+
+#score {
+	display: none;
+	font-family: "Roboto Mono", monospace;
+	font-size: 72px;
+	text-align: center;
+	padding: 30px;
+}
+
+.n {
+	font-weight: bold;
+	text-decoration: underline;
+}
