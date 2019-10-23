@@ -136,12 +136,12 @@ function finish() {
             cell = rows[y].children[x];
             cell.innerText = "";
         }
-    }
+    };
 
     document.getElementsByClassName("control")[0].onclick = function () {
         clearInterval(interval);
         showScores(score);
-    }
+    };
 }
 
 function showScores(pts) {
