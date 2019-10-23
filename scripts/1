@@ -1,0 +1,14 @@
+from bs4 import BeautifulSoup as bs
+
+def validatePage(url):
+    html = urlopen(url)
+    b = bs(html, "html.parser")
+    b.find("div", {"class": "o-poem isActive"})
+
+
+def main():
+    validatePage("https://www.poetryfoundation.org/poetrymagazine/poems/41729/0-")
+
+
+if __name__ == "__main__":
+    main()

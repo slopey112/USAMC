@@ -2,9 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Speed Poetry</title>
+    <link rel="stylesheet" href="styles/speed-numbers.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Roboto+Mono|Cousine&display=swap" rel="stylesheet">
 </head>
-<body>
-$END$
-</body>
+    <body>
+        <header>
+            <h1>Speed Poetry</h1>
+        </header>
+        <main>
+            <div id="left">
+                <p id="timer">15:00</p>
+                <div id="interface">
+                    <button class="control">Stop</button>
+                    <button class="control">Reset</button>
+                </div>
+            </div>
+            <div id="right">
+                <div id="numbers"></div>
+                <div id="overlay">
+                    <button id="clear">Start</button>
+                </div>
+                <div id="score">
+                    <p>You scored <span class="n"></span> points in <span class="n"></span> seconds.</p>
+                </div>
+            </div>
+            <div class="collapse left">
+                <div class="triangle" id="triangle-left"></div>
+            </div>
+            <div class="collapse right">
+                <div class="triangle" id="triangle-right"></div>
+            </div>
+        </main>
+    </body>
+    <script src="libraries/date-en-US.js"></script>
+    <script src="scripts/speed-poetry.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBK4FECgegrkbBruffft12qDEj_1Fr8cjg",
+        authDomain: "usamc-1f05d.firebaseapp.com",
+        databaseURL: "https://usamc-1f05d.firebaseio.com",
+        projectId: "usamc-1f05d",
+        storageBucket: "usamc-1f05d.appspot.com",
+        messagingSenderId: "1042225170615",
+        appId: "1:1042225170615:web:141d01558470a4fb89a532",
+        measurementId: "G-QWNWYW4WFS"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 </html>
